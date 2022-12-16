@@ -25,6 +25,7 @@
           myUrl += `${store.movieQuery}` 
         }
 
+        // Ricordarsi di far partire una chiamata API con i film/serie più popolari in seguito
         axios
         .get(myUrl)
         .then(res => {
