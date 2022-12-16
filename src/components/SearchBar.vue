@@ -15,8 +15,7 @@
 </template>
 
 <style lang="scss" scoped>
-    @use '../src/style/general.scss' as *;
-
+    @use '../style/partials/variables' as *;
     .container {
         background-color: #000;
         display: flex;
