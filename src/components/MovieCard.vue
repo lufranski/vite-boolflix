@@ -2,7 +2,7 @@
     // import {store} from '../store.js';
 
     export default {
-        props: ['info'],
+        props: ['movie'],
         // data() {
         //     return{
         //         store
@@ -19,10 +19,10 @@
     <ul>
         <li>
         
-            <h3>1. {{movie.title}}</h3>
-            <h5>2. {{movie.original_title}}</h5>
-            <h5>3. {{movie.original_language}}</h5>
-            <h5>4. {{movie.vote_average}}</h5>
+            <h3>{{movie.title}}</h3>
+            <h5>1. {{movie.original_title}}</h5>
+            <h5>2. {{movie.original_language}}</h5>
+            <h5>3. {{movie.vote_average}}</h5>
         
         </li>
     </ul>
@@ -30,5 +30,9 @@
 
 <style lang="scss" scoped>
     @use '../style/partials/variables' as *;
+
+    li {
+        color: #fff;
+    }
     
 </style>

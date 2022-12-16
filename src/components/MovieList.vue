@@ -16,7 +16,7 @@
 <template>
   <div class="container">
     
-    <MovieCard v-for="movie in store.movieList" :key="movie.id" :info="movie"/> 
+    <MovieCard v-for="movie in store.movieList" :key="movie.id" :movie="movie"/> 
 
   </div>
 </template>
@@ -31,6 +31,8 @@
         margin: 40px 20px;
         display: flex;
         flex-wrap: wrap;
+        gap: 2rem;
+        overflow-y: auto;
         // DEBUG
         height: 400px;
     }
