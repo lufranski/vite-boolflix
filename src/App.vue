@@ -1,17 +1,53 @@
 <script >
+  import axios from 'axios';
+
   import SearchBar from './components/SearchBar.vue';
   import MovieList from './components/MovieList.vue';
+  
+  import {store} from './store.js';
 
   export default {
     components: {
       SearchBar,
       MovieList
+    },
+    data() {
+      return {
+        store
+      }
+    },
+    methods: {
+      getMovies(){
+
+        let myUrl = store.apiUrl;
+
+        if(store.movieQuery !== '') {
+          myUrl += `${store.movieQuery}` 
+        }
+
+        axios
+        .get(myUrl)
+        .then(res => {
+          
+          store.movieList = res.data.results;
+        
+        })
+        .catch(err => {
+
+          console.log('errori' , err);
+
+        })
+      }
+      
+    },
+    mounted() {
+      this.getMovies();
     }
   }
 </script>
 
 <template>
-  <SearchBar />
+  <SearchBar @browseMovies="getMovies()"/>
   
   <MovieList />
 </template>

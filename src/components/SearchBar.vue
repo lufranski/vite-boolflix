@@ -1,14 +1,20 @@
 <script >
-    export default {
+    import {store} from '../store.js';
 
+    export default {
+        data() {
+            return{
+                store,
+            }
+        }
     }
 </script>
 
 <template>
   <div class="container">
-    <input type="text">
+    <input type="text" v-model="store.movieQuery">
 
-    <div class="button">
+    <div class="button" @click="$emit('browseMovies')">
       Search
     </div>
   </div>
