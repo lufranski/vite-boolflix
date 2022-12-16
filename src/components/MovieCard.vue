@@ -5,8 +5,31 @@
         props: ['movie'],
         data() {
             return{
-                flagsArray: ['./src/assets/img/ukusa.jpg']
+                flagsURL: 'src/assets/img/',
+                customURL: '',
+                flagsOutcomes: [
+                    'en',
+                    'it',
+                    'de',
+                    'fr',
+                    'es'
+                ]
             }
+        },
+        methods: {
+            matchFlags(){
+                
+                // this.flagsURL += `${this.movie.original_language}.jpg`;
+                
+                this.customURL = this.flagsURL + `${this.movie.original_language}.png`;
+
+                console.log(this.customURL);
+            }
+        },
+        mounted() {
+            
+            this.matchFlags();
+        
         }
     }
 </script>
@@ -20,14 +43,22 @@
         <li>
         
             <h3>{{movie.title}}</h3>
+            
             <h5 v-if="movie.original_title !== movie.title">
                 {{movie.original_title}}
             </h5>
+            
             <h5>
-                <img class='flag' :src="flagsArray[0]" alt="">
+
+                <img v-if="flagsOutcomes.includes(movie.original_language)" class="flag" :src="customURL" alt="">
+                
+                <img class='flag' src="src/assets/img/missing.png" alt="" v-else>
+                
                 -
+                
                 {{movie.original_language}}
             </h5>
+            
             <h5>3. {{movie.vote_average}}</h5>
         
         </li>
@@ -43,7 +74,7 @@
         h5 {
 
             .flag {
-                width: 20px;
+                width: 25px;
             }
         }
     }
