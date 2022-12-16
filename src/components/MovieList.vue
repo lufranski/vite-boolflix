@@ -1,12 +1,14 @@
 <script >
-    export default {
+    import MovieCard from './MovieCard.vue';
 
-    }
+    export default {
+    components: { MovieCard }
+}
 </script>
 
 <template>
   <div class="container">
-    
+    <MovieCard />
   </div>
 </template>
 
