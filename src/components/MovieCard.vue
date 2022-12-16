@@ -20,7 +20,7 @@
         <li>
         
             <h3>{{movie.title}}</h3>
-            <h5>1. {{movie.original_title}}</h5>
+            <h5 v-if="movie.original_title !== movie.title">1. {{movie.original_title}}</h5>
             <h5>2. {{movie.original_language}}</h5>
             <h5>3. {{movie.vote_average}}</h5>
         
