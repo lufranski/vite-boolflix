@@ -14,6 +14,7 @@
                     'fr',
                     'es'
                 ],
+                movieRating: '',
                 store
             }
         },
@@ -28,11 +29,25 @@
 
                 return this.store.baseUrl+'w185'+this.movie.poster_path;
 
+            },
+            ratingConverter(){
+
+                // Vecchio range da 0 a 10, per cui la sottrazione tra max 10 e min 0 darebbe comunque 10
+                let oldRange = 10;
+
+                // Stessa cosa per il nuovo range, 5 - 0 dà sempre 5
+                let newRange = 5;
+
+                this.movieRating = ((this.movie.vote_average) * 5) / 10;
+
+
             }
         },
         mounted() {
             
             this.matchFlags();
+
+            this.ratingConverter();
         
         }
     }
@@ -79,7 +94,7 @@
     
                 </h5>
                     
-                <h5>{{movie.vote_average}}</h5>
+                <h5>{{movieRating}}</h5>
             </div>
 
         </a>
