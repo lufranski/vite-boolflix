@@ -40,7 +40,7 @@
                 let newRange = 5 - 1;
 
                 // Il nuovo rating verrà arrotondato grazie a Math.round
-                this.movieRating = Math.round(((this.movie.vote_average) * newRange) / oldRange);
+                this.movieRating = Math.ceil(((this.movie.vote_average) * newRange) / oldRange);
 
             },
             starNumberCalc() {
