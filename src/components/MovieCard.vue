@@ -20,8 +20,6 @@
         methods: {
             matchFlags(){
                 
-                // this.flagsURL += `${this.movie.original_language}.jpg`;
-                
                 this.customURL = this.flagsURL + `${this.movie.original_language}.png`;
 
                 console.log(this.customURL);
@@ -47,7 +45,9 @@
 
             <div class="poster">
 
-                <img :src="posterPath()" alt="">
+                <img v-if="movie.poster_path" :src="posterPath()" alt="">
+
+                <img v-else src="../assets/img/missingposter.jpg" alt="">
             
             </div>
 
