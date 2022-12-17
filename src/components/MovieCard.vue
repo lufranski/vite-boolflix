@@ -39,36 +39,47 @@
         <img src="https://www.filmsite.org/posters/exorcist3.jpg" alt="">
     </div> -->
 
-    <ul>
-        <li>
-        
-            <h3>{{movie.title}}</h3>
-            
-            <h5 v-if="movie.original_title !== movie.title">
-                {{movie.original_title}}
-            </h5>
-            
-            <h5>
+    
+        <li v-if="movie.media_type == 'tv' || movie.media_type == 'movie'">
+            <a href="#">
 
-                <img v-if="flagsOutcomes.includes(movie.original_language)" class="flag" :src="customURL" alt="">
+                <h3>{{movie.title}}</h3>
+
+                <h3 v-if="movie.media_type == 'tv'">
+                    {{movie.name}}
+                </h3>
+
+                <h5 v-if="movie.original_name !== movie.name">
+                    {{movie.original_name}}
+                </h5>
                 
-                <img class='flag' src="src/assets/img/missing.png" alt="" v-else>
+                <h5 v-if="movie.original_title !== movie.title">
+                    {{movie.original_title}}
+                </h5>
                 
-                -
+                <h5>
+    
+                    <img v-if="flagsOutcomes.includes(movie.original_language)" class="flag" :src="customURL" alt="">
+                    
+                    <img class='flag' src="src/assets/img/missing.png" alt="" v-else>
+                    
+                    -
+                    
+                    {{movie.original_language}}
+                </h5>
                 
-                {{movie.original_language}}
-            </h5>
-            
-            <h5>3. {{movie.vote_average}}</h5>
+                <h5>{{movie.vote_average}}</h5>
+
+            </a>
         
         </li>
-    </ul>
+    
 </template>
 
 <style lang="scss" scoped>
     @use '../style/partials/variables' as *;
 
-    li {
+    a {
         color: #fff;
 
         h5 {
