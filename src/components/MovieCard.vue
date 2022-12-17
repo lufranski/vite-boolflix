@@ -36,10 +36,10 @@
                 // Vecchio range da 0 a 10, per cui la sottrazione tra max 10 e min 0 darebbe comunque 10
                 let oldRange = 10;
 
-                // Stessa cosa per il nuovo range, max di 5 e min di 1
-                let newRange = 5 - 1;
+                // Stessa cosa per il nuovo range, max di 5 e min di 0
+                let newRange = 5;
 
-                // Il nuovo rating verrà arrotondato grazie a Math.round
+                // Il nuovo rating verrà arrotondato grazie a Math.ceil
                 this.movieRating = Math.ceil(((this.movie.vote_average) * newRange) / oldRange);
 
             },
@@ -103,7 +103,7 @@
                 </h5>
                     
                 <div class="ratings">
-                    
+
                     <font-awesome-icon v-for="n in movieRating" icon="fa-solid fa-star" />
 
                     <font-awesome-icon  v-for="x in numberOfRegStars" icon="fa-regular fa-star" />
