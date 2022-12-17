@@ -15,6 +15,7 @@
                     'es'
                 ],
                 movieRating: '',
+                numberOfRegStars: '',
                 store
             }
         },
@@ -41,6 +42,11 @@
                 // Il nuovo rating verrà arrotondato grazie a Math.round
                 this.movieRating = Math.round(((this.movie.vote_average) * newRange) / oldRange);
 
+            },
+            starNumberCalc() {
+
+                this.numberOfRegStars = 5 - this.movieRating;
+
             }
         },
         mounted() {
@@ -48,6 +54,8 @@
             this.matchFlags();
 
             this.ratingConverter();
+
+            this.starNumberCalc();
         
         }
     }
@@ -95,11 +103,10 @@
                 </h5>
                     
                 <div class="ratings">
-                    {{movieRating}}
                     
                     <font-awesome-icon v-for="n in movieRating" icon="fa-solid fa-star" />
 
-                    <font-awesome-icon icon="fa-regular fa-star" />
+                    <font-awesome-icon  v-for="x in numberOfRegStars" icon="fa-regular fa-star" />
 
                 </div>
             </div>
