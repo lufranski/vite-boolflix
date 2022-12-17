@@ -135,7 +135,7 @@
         }
 
         .ratings {
-            color: yellow;
+            color: #FFBF00;
         }
     }
     
