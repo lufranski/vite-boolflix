@@ -28,7 +28,7 @@
             },
             posterPath(){
 
-                return this.store.baseUrl+'w185'+this.movie.poster_path;
+                return this.store.baseUrl+'w342'+this.movie.poster_path;
 
             },
             ratingConverter(){
@@ -124,7 +124,8 @@
         color: #fff;
 
         .poster {
-            width: 185px;
+            width: 342px;
+            
         }
 
         h5 {
