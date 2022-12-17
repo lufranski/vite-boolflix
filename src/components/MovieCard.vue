@@ -38,7 +38,8 @@
                 // Stessa cosa per il nuovo range, 5 - 0 dà sempre 5
                 let newRange = 5;
 
-                this.movieRating = ((this.movie.vote_average) * 5) / 10;
+                // Il nuovo rating verrà arrotondato grazie a Math.round
+                this.movieRating = Math.round(((this.movie.vote_average) * 5) / 10);
 
 
             }
