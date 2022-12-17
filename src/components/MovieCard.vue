@@ -35,12 +35,11 @@
                 // Vecchio range da 0 a 10, per cui la sottrazione tra max 10 e min 0 darebbe comunque 10
                 let oldRange = 10;
 
-                // Stessa cosa per il nuovo range, 5 - 0 dà sempre 5
-                let newRange = 5;
+                // Stessa cosa per il nuovo range, max di 5 e min di 1
+                let newRange = 5 - 1;
 
                 // Il nuovo rating verrà arrotondato grazie a Math.round
-                this.movieRating = Math.round(((this.movie.vote_average) * 5) / 10);
-
+                this.movieRating = Math.round(((this.movie.vote_average) * newRange) / oldRange);
 
             }
         },
@@ -95,7 +94,14 @@
     
                 </h5>
                     
-                <h5>{{movieRating}}</h5>
+                <div class="ratings">
+                    {{movieRating}}
+                    
+                    <font-awesome-icon v-for="n in movieRating" icon="fa-solid fa-star" />
+
+                    <font-awesome-icon icon="fa-regular fa-star" />
+
+                </div>
             </div>
 
         </a>
@@ -119,6 +125,10 @@
             .flag {
                 width: 25px;
             }
+        }
+
+        .ratings {
+            color: yellow;
         }
     }
     
