@@ -29,9 +29,9 @@
 
                 <img v-else src="../assets/img/missingposter.jpg" alt="">
             
+                <CardInfo :movie="movie" class="hoverable"/>
             </div>
 
-            <CardInfo :movie="movie"/>
 
         </a>
         
@@ -47,7 +47,19 @@
 
         .poster {
             width: 342px;
-            
+            position: relative;
+
+            &:hover .hoverable {
+                display: block;
+                position: absolute;
+                top: 10%;
+                left: 5%;
+                right: 5%;
+                background-color: rgba(0, 0, 0, .95);
+                border-radius: 0 16px 0 16px;
+                padding: 3rem;
+                min-height: 70%;
+            }
         }
 
     }

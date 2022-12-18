@@ -43,21 +43,24 @@
 <template>
     <div class="info">
 
-        <h3>{{movie.title}}</h3>
-            
         <h3 v-if="movie.media_type == 'tv'">
-            {{movie.name}}
+            <span>Title -</span> {{movie.name}}
         </h3>
+
+        <h3 v-else>
+            <span>Title -</span> {{movie.title}}
+        </h3>
+            
         
         <div class="original-title">
             <i>
 
                 <h5 v-if="movie.original_name !== movie.name">
-                    {{movie.original_name}}
+                    <span>Original Title -</span> {{movie.original_name}}
                 </h5>
                     
                 <h5 v-if="movie.original_title !== movie.title">
-                    {{movie.original_title}}
+                    <span>Original Title -</span> {{movie.original_title}}
                 </h5>
                 
             </i>
@@ -67,13 +70,15 @@
             
         <div class="lang">
 
+            <span>Original Language - </span>
+
             <img v-if="flagsOutcomes.includes(movie.original_language)" class="flag" :src="customURL" alt="">
                 
             <img class='flag' src="src/assets/img/missing.png" alt="" v-else>
             
             <span class="original-lang">
 
-                - {{movie.original_language.toUpperCase()}}
+                / {{movie.original_language.toUpperCase()}}
             
             </span>
 
@@ -81,11 +86,17 @@
             
         <div class="ratings">
 
+            <span>Ratings: </span>
+
             <font-awesome-icon v-for="n in movieRating" icon="fa-solid fa-star" />
 
             <font-awesome-icon  v-for="x in numberOfRegStars" icon="fa-regular fa-star" />
 
         </div>
+
+        <p class="overview">
+            <span>Overview - </span>{{ movie.overview }}
+        </p>
     </div>
 </template>
 
@@ -93,6 +104,7 @@
     @use '../style/partials/variables' as *;
 
     .info {
+        display: none;
 
         .lang {
             .flag {
@@ -101,12 +113,18 @@
 
             .original-lang {
                 font-size: 12px;
+                color: #fff;
             }
         }
     
         .ratings {
-            color: #FFBF00;
+            color: $primary-color;
+
         }
     }
-
+    
+    span {
+        color: $primary-color;
+        font-weight: 900;
+    }
 </style>

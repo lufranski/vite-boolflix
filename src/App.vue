@@ -13,7 +13,8 @@
     },
     data() {
       return {
-        store
+        store,
+        displayTrends: 'true'
       }
     },
     methods: {
@@ -31,6 +32,11 @@
           console.log('errori' , err);
 
         })
+      },
+      startQuery(){
+
+        this.displayTrends = 'false';
+
       }
       
     },
@@ -72,6 +78,7 @@
     left: 5%;
     top: 12%;
     background-color: rgba( $primary-color, .75);
+    z-index: 200;
 
     h4 {
       font-size: 40px;
