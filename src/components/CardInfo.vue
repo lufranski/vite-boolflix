@@ -57,17 +57,19 @@
             {{movie.original_title}}
         </h5>
             
-        <h5>
+        <div class="lang">
 
             <img v-if="flagsOutcomes.includes(movie.original_language)" class="flag" :src="customURL" alt="">
                 
             <img class='flag' src="src/assets/img/missing.png" alt="" v-else>
-                
-            -
-                
-            {{movie.original_language}}
+            
+            <span class="original-lang">
 
-        </h5>
+                - {{movie.original_language.toUpperCase()}}
+            
+            </span>
+
+        </div>
             
         <div class="ratings">
 
@@ -84,9 +86,13 @@
 
     .info {
 
-        h5 {
+        .lang {
             .flag {
                 width: 25px;
+            }
+
+            .original-lang {
+                font-size: 12px;
             }
         }
     
