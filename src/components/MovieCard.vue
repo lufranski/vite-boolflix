@@ -58,7 +58,8 @@
                 background-color: rgba(0, 0, 0, .95);
                 border-radius: 0 16px 0 16px;
                 padding: 3rem;
-                min-height: 70%;
+                height: 70%;
+                overflow-y: auto;
             }
         }
 
