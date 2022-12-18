@@ -1,15 +1,15 @@
 <script >
   import axios from 'axios';
+  import AppHeader from './components/AppHeader.vue';
 
-  import SearchBar from './components/SearchBar.vue';
   import MovieList from './components/MovieList.vue';
   
   import {store} from './store.js';
 
   export default {
     components: {
-      SearchBar,
-      MovieList
+      MovieList,
+      AppHeader
     },
     data() {
       return {
@@ -48,9 +48,11 @@
 </script>
 
 <template>
-  <SearchBar @browseMovies="getMovies()"/>
+  
+  <AppHeader />
   
   <MovieList />
+
 </template>
 
 <style lang="scss">
