@@ -71,7 +71,7 @@
     position: absolute;
     left: 5%;
     top: 12%;
-    background-color: $primary-color;
+    background-color: rgba( $primary-color, .75);
 
     h4 {
       font-size: 40px;

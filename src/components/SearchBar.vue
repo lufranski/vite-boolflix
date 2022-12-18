@@ -12,7 +12,7 @@
 
 <template>
   <div class="container">
-    <input type="text" v-model="store.movieQuery" placeholder="Search ...">
+    <input type="text" v-model="store.movieQuery" placeholder="What are you looking for ?">
 
     <div class="button" @click="$emit('browseMovies')">
       Search

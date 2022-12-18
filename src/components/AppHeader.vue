@@ -43,8 +43,7 @@
         <div class="logo">
             <a href="#">
                 
-                <!-- <img src="../assets/img/boolflix-logo.png" alt="">  -->
-                <span>B</span>oolflix <span>&lt</span>/<span>></span>
+                <img src="../assets/img/boolflix-logo.png" alt="">
                 
             </a>
         </div>
@@ -76,13 +75,9 @@
                 color: #fff;
                 
                 img {
-                    width: 100%;
+                    width: 65%;
                 }
 
-                // DEBUG
-                span {
-                    color: $primary-color;
-                }
             }
         }
 
