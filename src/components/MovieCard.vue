@@ -1,64 +1,21 @@
 <script>
     import {store} from '../store.js';
-
+    import CardInfo from './CardInfo.vue';
+    
     export default {
-        props: ['movie'],
+        components: { CardInfo },
+        props: ["movie"],
         data() {
-            return{
-                flagsURL: 'src/assets/img/',
-                customURL: '',
-                flagsOutcomes: [
-                    'en',
-                    'it',
-                    'de',
-                    'fr',
-                    'es'
-                ],
-                movieRating: '',
-                numberOfRegStars: '',
+            return {
                 store
-            }
+            };
         },
         methods: {
-            matchFlags(){
-                
-                this.customURL = this.flagsURL + `${this.movie.original_language}.png`;
-
-                console.log(this.customURL);
+            posterPath() {
+                return this.store.baseUrl + "w342" + this.movie.poster_path;
             },
-            posterPath(){
-
-                return this.store.baseUrl+'w342'+this.movie.poster_path;
-
-            },
-            ratingConverter(){
-
-                // Vecchio range da 0 a 10, per cui la sottrazione tra max 10 e min 0 darebbe comunque 10
-                let oldRange = 10;
-
-                // Stessa cosa per il nuovo range, max di 5 e min di 0
-                let newRange = 5;
-
-                // Il nuovo rating verrà arrotondato grazie a Math.ceil
-                this.movieRating = Math.ceil(((this.movie.vote_average) * newRange) / oldRange);
-
-            },
-            starNumberCalc() {
-
-                this.numberOfRegStars = 5 - this.movieRating;
-
-            }
-        },
-        mounted() {
-            
-            this.matchFlags();
-
-            this.ratingConverter();
-
-            this.starNumberCalc();
-        
         }
-    }
+    }    
 </script>
 
 <template>
@@ -74,42 +31,7 @@
             
             </div>
 
-            <div class="info">
-
-                <h3>{{movie.title}}</h3>
-                    
-                <h3 v-if="movie.media_type == 'tv'">
-                    {{movie.name}}
-                </h3>
-    
-                <h5 v-if="movie.original_name !== movie.name">
-                    {{movie.original_name}}
-                </h5>
-                    
-                <h5 v-if="movie.original_title !== movie.title">
-                    {{movie.original_title}}
-                </h5>
-                    
-                <h5>
-        
-                    <img v-if="flagsOutcomes.includes(movie.original_language)" class="flag" :src="customURL" alt="">
-                        
-                    <img class='flag' src="src/assets/img/missing.png" alt="" v-else>
-                        
-                    -
-                        
-                    {{movie.original_language}}
-    
-                </h5>
-                    
-                <div class="ratings">
-
-                    <font-awesome-icon v-for="n in movieRating" icon="fa-solid fa-star" />
-
-                    <font-awesome-icon  v-for="x in numberOfRegStars" icon="fa-regular fa-star" />
-
-                </div>
-            </div>
+            <CardInfo :movie="movie"/>
 
         </a>
         
@@ -128,16 +50,6 @@
             
         }
 
-        h5 {
-
-            .flag {
-                width: 25px;
-            }
-        }
-
-        .ratings {
-            color: #FFBF00;
-        }
     }
     
 </style>
