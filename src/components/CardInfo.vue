@@ -48,14 +48,22 @@
         <h3 v-if="movie.media_type == 'tv'">
             {{movie.name}}
         </h3>
+        
+        <div class="original-title">
+            <i>
 
-        <h5 v-if="movie.original_name !== movie.name">
-            {{movie.original_name}}
-        </h5>
-            
-        <h5 v-if="movie.original_title !== movie.title">
-            {{movie.original_title}}
-        </h5>
+                <h5 v-if="movie.original_name !== movie.name">
+                    {{movie.original_name}}
+                </h5>
+                    
+                <h5 v-if="movie.original_title !== movie.title">
+                    {{movie.original_title}}
+                </h5>
+                
+            </i>
+
+        </div>
+
             
         <div class="lang">
 
