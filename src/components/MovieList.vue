@@ -29,15 +29,13 @@
     @use '../style/partials/variables' as *;
 
     .container {
-        padding: 2rem;        
-        border: 1px solid #000;
+        padding: 1rem;        
         border-radius: 10px;
-        margin: 40px 20px;
         overflow-x: auto;
         
         ul {
             display: flex;
-            gap: 4rem;
+            gap: .2rem;
         }
     }
 </style>

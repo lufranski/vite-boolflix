@@ -19,15 +19,8 @@
     methods: {
       getMovies(){
 
-        let myUrl = store.apiUrl;
-
-        if(store.movieQuery !== '') {
-          myUrl += `${store.movieQuery}` 
-        }
-
-        // Ricordarsi di far partire una chiamata API con i film/serie più popolari in seguito
         axios
-        .get(myUrl)
+        .get(store.trendingUrl)
         .then(res => {
           
           store.movieList = res.data.results;
@@ -51,6 +44,19 @@
   
   <AppHeader />
   
+  <div class="label">
+
+    <h4 v-if="store.movieQuery == '' " class="trending-now">
+      <i>Trending Now</i>
+    </h4>
+  
+    <h4 v-else class="query-result">
+      <i>Results</i>
+    </h4>
+
+  </div>
+
+
   <MovieList />
 
 </template>
@@ -58,5 +64,20 @@
 <style lang="scss">
   @use '../src/style/general.scss' as *;
   @use './style/partials/variables' as *;
+
+  .label {
+    padding: .1rem 1rem;
+    border-radius: 16px 0 16px 0;
+    position: absolute;
+    left: 5%;
+    top: 12%;
+    background-color: $primary-color;
+
+    h4 {
+      font-size: 40px;
+      color: $secondary-color;
+      font-weight: 900;
+    }
+  }
   
 </style>

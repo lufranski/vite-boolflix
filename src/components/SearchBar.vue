@@ -29,8 +29,14 @@
         padding: 1rem;        
         .button {
             color: $primary-color;
-            border: 1px solid $primary-color;
+            border: 2px solid $primary-color;
+            font-weight: 800;
             border-radius: 16px 0 16px 0;
+            transition: 0.4s;
+
+            &:hover {
+                border-radius: 0 16px 0 16px;
+            }
         }
 
         input {
@@ -42,7 +48,7 @@
             border: none;
             outline: none;
             background: none;
-            background-color: rgba(255, 255, 255, .5);
+            background-color: rgba(255, 255, 255, .35);
             transition: 0.4s;
 
             &:focus {

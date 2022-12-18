@@ -21,25 +21,16 @@
                 myUrl += `${store.movieQuery}` 
                 }
 
-                // Ricordarsi di far partire una chiamata API con i film/serie più popolari in seguito
                 axios
                 .get(myUrl)
                 .then(res => {
                 
-                store.movieList = res.data.results;
+                    store.movieList = res.data.results;
 
                 })
-                .catch(err => {
-
-                    console.log('errori' , err);
-
-                })
+                
             }
-
         },
-        mounted() {
-            this.getMovies();
-        }
     }
                 
     
@@ -50,8 +41,12 @@
     <header>
 
         <div class="logo">
-            <!-- <img src="" alt=""> -->
-            B
+            <a href="#">
+                
+                <!-- <img src="../assets/img/boolflix-logo.png" alt="">  -->
+                <span>B</span>oolflix <span>&lt</span>/<span>></span>
+                
+            </a>
         </div>
 
         <div class="search-bar">
@@ -74,8 +69,21 @@
         padding: .5rem 1rem;
 
         .logo {
-            color: $primary-color;
             font-size: 30px;
+            width: 30%;
+
+            a {
+                color: #fff;
+                
+                img {
+                    width: 100%;
+                }
+
+                // DEBUG
+                span {
+                    color: $primary-color;
+                }
+            }
         }
 
         .search-bar {
