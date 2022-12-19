@@ -1,6 +1,9 @@
 <script>
+    import Cast from './Cast.vue';
+
     export default {
         props: ['movie'],
+        components: { Cast },
         data() {
             return {
                 flagsURL: "src/assets/img/",
@@ -101,6 +104,9 @@
                 No available overview  ...
             </span>
         </p>
+
+        <Cast :movie="movie" :key="movie.id"/>
+        
     </div>
 </template>
 
@@ -119,8 +125,9 @@
                 font-size: 12px;
                 color: #fff;
             }
+
         }
-    
+        
         .ratings {
             color: $primary-color;
 

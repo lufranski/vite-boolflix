@@ -6,5 +6,8 @@ export const store = reactive ({
     trendingUrl: 'https://api.themoviedb.org/3/trending/all/week?api_key=381a82bd8b02866089d3f125535bf53d',
     movieQuery: '',
     baseUrl: 'https://image.tmdb.org/t/p/',
-    displayTrends: true
+    displayTrends: true,
+    castList: [],
+    castCallMovie: 'https://api.themoviedb.org/3/',
+    castCallMovie2:'/credits?api_key=381a82bd8b02866089d3f125535bf53d&language=en-US',
 });
