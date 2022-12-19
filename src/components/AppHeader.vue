@@ -27,6 +27,8 @@
                 
                     store.movieList = res.data.results;
 
+                    this.store.displayTrends = false;
+
                 })
                 
             }

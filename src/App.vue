@@ -14,7 +14,6 @@
     data() {
       return {
         store,
-        displayTrends: 'true'
       }
     },
     methods: {
@@ -33,11 +32,6 @@
 
         })
       },
-      startQuery(){
-
-        this.displayTrends = 'false';
-
-      }
       
     },
     mounted() {
@@ -52,7 +46,7 @@
   
   <div class="label">
 
-    <h4 v-if="store.movieQuery == '' " class="trending-now">
+    <h4 v-if="store.displayTrends" class="trending-now">
       <i>Trending Now</i>
     </h4>
   
