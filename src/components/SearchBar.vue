@@ -25,7 +25,7 @@
     .container {
         // background-color: #000;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         padding: 1rem;        
         .button {
             color: $primary-color;
