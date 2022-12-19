@@ -49,6 +49,11 @@
             width: 342px;
             position: relative;
 
+            img {
+                max-height: 500px;
+                object-fit: contain;
+            }
+
             &:hover .hoverable {
                 display: block;
                 position: absolute;
@@ -58,7 +63,7 @@
                 background-color: rgba(0, 0, 0, .95);
                 border-radius: 0 16px 0 16px;
                 padding: 3rem;
-                height: 70%;
+                height: 400px;
                 overflow-y: auto;
             }
         }
