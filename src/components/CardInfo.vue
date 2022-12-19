@@ -1,5 +1,6 @@
 <script>
-    import Cast from './Cast.vue';
+    import { store } from '../store';
+import Cast from './Cast.vue';
 
     export default {
         props: ['movie'],
@@ -33,6 +34,11 @@
             },
             starNumberCalc() {
                 this.numberOfRegStars = 5 - this.movieRating;
+            },
+            resetCast(){
+
+                store.displayCast = false;
+
             }
         },
         mounted() {
@@ -44,7 +50,7 @@
 </script>
 
 <template>
-    <div class="info">
+    <div class="info" @mouseleave="resetCast()">
 
         <h3 v-if="movie.media_type == 'tv'">
             <span>Title -</span> {{movie.name}}
@@ -105,7 +111,7 @@
             </span>
         </p>
 
-        <Cast :movie="movie" :key="movie.id"/>
+        <Cast :movie="movie" :key="movie.id" />
         
     </div>
 </template>

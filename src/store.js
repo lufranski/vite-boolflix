@@ -11,5 +11,6 @@ export const store = reactive ({
     castCallMovie: 'https://api.themoviedb.org/3/',
     castCallMovie2:'/credits?api_key=381a82bd8b02866089d3f125535bf53d&language=en-US',
     baseCastImg: 'https://image.tmdb.org/t/p/',
-    castImgWidth: 'w45/'
+    castImgWidth: 'w45/',
+    displayCast: false
 });
