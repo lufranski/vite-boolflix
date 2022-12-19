@@ -96,6 +96,10 @@
 
         <p class="overview">
             <span>Overview - </span>{{ movie.overview }}
+
+            <span v-if="movie.overview == ''" style="color: #fff; font-weight: 500;">
+                No available overview  ...
+            </span>
         </p>
     </div>
 </template>
