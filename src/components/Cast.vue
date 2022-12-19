@@ -23,9 +23,9 @@
                 
                     this.displayCast = true;
                     
-                    store.castList = res.data.results;
+                    store.castList = res.data;
 
-                    console.log(this.store.castList);
+                    console.log(this.displayCast, res, res.data);
 
                 })
                 .catch(err => {
@@ -45,7 +45,7 @@
             Click to show cast
         </p>
 
-        <div v-if="displayCast" v-for="actor in castList.cast" :key="actor.id">
+        <div v-if="displayCast" v-for="actor in store.castList.cast" :key="actor.id">
             {{ actor.name }}
         </div>
     </div>
