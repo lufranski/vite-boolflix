@@ -34,8 +34,13 @@
 
                 })
             },
+            buildCastImg(){
+
+                return this.store.baseCastImg + this.store.castImgWidth + this.store.castList.cast[0].profile_path;
+
+            }
             
-        }
+        },
     }
     
 </script>
@@ -46,8 +51,23 @@
             Click to show cast
         </p>
 
-        <div v-if="displayCast" v-for="actor in store.castList.cast.slice(0,5)" :key="actor.id">
-            {{ actor.name }}
+        <div class="cast-info" v-if="displayCast" v-for="actor in store.castList.cast.slice(0,5)" :key="actor.credit_id">
+            <div class="img">
+                <img :src="buildCastImg(0)" alt="">
+            </div>
+            
+            <div class="text">
+                <h5 class="name">
+                    {{ actor.name }}
+                </h5>
+    
+                <h5 class="role">
+                    as 
+                    <b>
+                        {{ actor.character }}
+                    </b>
+                </h5>
+            </div>
         </div>
     </div>
 </template>
@@ -57,9 +77,27 @@
 
     .click-for-cast {
             
-            color: $primary-color;
-            text-decoration: underline;
-            font-weight: bolder;
+        color: $primary-color;
+        text-decoration: underline;
+        font-weight: bolder;
 
+    }
+
+    .cast-info {
+        display: flex;
+        gap: .5rem;
+        margin: 10px 0;
+
+        .text {
+            align-self: center;
+
+            .name {
+                color: $primary-color;
+            }
+
+            .role {
+                font-size: 12px;
+            }
         }
+    }
 </style>
