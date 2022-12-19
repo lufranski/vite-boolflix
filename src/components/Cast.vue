@@ -25,7 +25,7 @@
                     
                     store.castList = res.data;
 
-                    console.log(this.displayCast, res, res.data);
+                    console.log(this.displayCast, res.data);
 
                 })
                 .catch(err => {
@@ -34,6 +34,7 @@
 
                 })
             },
+            
         }
     }
     
@@ -45,7 +46,7 @@
             Click to show cast
         </p>
 
-        <div v-if="displayCast" v-for="actor in store.castList.cast" :key="actor.id">
+        <div v-if="displayCast" v-for="actor in store.castList.cast.slice(0,5)" :key="actor.id">
             {{ actor.name }}
         </div>
     </div>
