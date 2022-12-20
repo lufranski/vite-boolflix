@@ -1,10 +1,11 @@
 <script>
-    import { store } from '../store';
-import Cast from './Cast.vue';
+    import { store } from '../store.js';
+    import Cast from './Cast.vue';
+    import Genres from './Genres.vue';
 
     export default {
         props: ['movie'],
-        components: { Cast },
+        components: { Cast, Genres },
         data() {
             return {
                 flagsURL: "src/assets/img/",
@@ -110,6 +111,8 @@ import Cast from './Cast.vue';
                 No available overview  ...
             </span>
         </p>
+
+        <Genres :movie="movie"/>
 
         <Cast :movie="movie" :key="movie.id" />
         

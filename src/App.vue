@@ -51,7 +51,7 @@
     </h4>
   
     <h4 v-else class="query-result">
-      <i>Results</i>
+      <i>Top Results</i>
     </h4>
 
   </div>
