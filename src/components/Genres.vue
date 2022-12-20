@@ -8,30 +8,50 @@
         },
         data() {
             return{
-                store
+                store,
+                genreList: [],
+                callGenresFirst: 'https://api.themoviedb.org/3/',
+                callGenresSecond: '?api_key='
             }
         },
         methods: {
-            callForGenre(){
+            // callForGenre(){
+            //     axios
+            //     .get(this.callGenres)
+            //     .then(res => {
+                
+            //         this.genreList = res.data.genres;
+
+            //         console.log(this.genreList);
+                
+            //     })
+            //     .catch(err => {
+
+            //         console.log('errori' , err);
+
+            //     })
+            // },
+            findGenre(){
+                
+                let genreURL = this.callGenresFirst + this.movie.media_type + '/' + this.movie.id + this.callGenresSecond + store.api_key; 
+                
+                // if(this.movie.media_type == 'movie') {
                 axios
-                .get(store.callGenres)
+                .get(genreURL)
                 .then(res => {
-                
-                    store.genreList = res.data.genres;
+                    
+                    this.genreList = res.data.genres;
 
-                    console.log(store.genreList);
+                    console.log(genreURL, this.genreList);
                 
                 })
-                .catch(err => {
-
-                    console.log('errori' , err);
-
-                })
-            },
+                // }
+            }
             
         },
         mounted() {
-            this.callForGenre();
+            // this.callForGenre();
+            this.findGenre();
         },
     }
 </script>
@@ -41,8 +61,8 @@
         <h4>Genres:</h4>
 
         <ul>
-            <li v-for="genre in store.genreList">
-                {{genre.name}}
+            <li v-for="genre in this.genreList">
+                #{{genre.name}}
             </li>
         </ul>
     </div>
@@ -53,9 +73,17 @@
 
     .genres {
         display: flex;
+        gap: .5rem;
 
-        // ul {
+        h4 {
+            font-weight: 900;
+        }
+        
+        ul {
             // display: flex;
-        // }
+            color: $primary-color;
+            // gap: .5rem;
+            font-size: 15px;
+        }
     }
 </style>

@@ -7,18 +7,25 @@
         data(){
             return{
                 store,
+                castList: {},
+                castCallMovie: 'https://api.themoviedb.org/3/',
+                castCallMovie2:'/credits?api_key=381a82bd8b02866089d3f125535bf53d&language=en-US',
+                baseCastImg: 'https://image.tmdb.org/t/p/',
+                castImgWidth: 'w45/',
             }
         },
         methods: {
             getCast(){
 
-                let castUrl = this.store.castCallMovie + this.movie.media_type + '/' + this.movie.id + this.store.castCallMovie2;
+                let castUrl = this.castCallMovie + this.movie.media_type + '/' + this.movie.id + this.castCallMovie2;
 
                 axios
                 .get(castUrl)
                 .then(res => {
                     
-                    store.castList = res.data;
+                    this.castList = res.data;
+
+                    console.log(res.data);
 
                 })
                 .catch(err => {
@@ -29,12 +36,12 @@
             },
             buildCastImg(actor){
 
-                return this.store.baseCastImg + this.store.castImgWidth + actor.profile_path;
+                return this.baseCastImg + this.castImgWidth + actor.profile_path;
 
             },
             sliceCast(){
 
-                return store.castList.cast.slice(0, 5);
+                return this.castList.cast.slice(0, 5);
 
             },
             showCast(){
