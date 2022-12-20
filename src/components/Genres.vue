@@ -15,42 +15,21 @@
             }
         },
         methods: {
-            // callForGenre(){
-            //     axios
-            //     .get(this.callGenres)
-            //     .then(res => {
-                
-            //         this.genreList = res.data.genres;
-
-            //         console.log(this.genreList);
-                
-            //     })
-            //     .catch(err => {
-
-            //         console.log('errori' , err);
-
-            //     })
-            // },
             findGenre(){
                 
                 let genreURL = this.callGenresFirst + this.movie.media_type + '/' + this.movie.id + this.callGenresSecond + store.api_key; 
                 
-                // if(this.movie.media_type == 'movie') {
                 axios
                 .get(genreURL)
                 .then(res => {
                     
                     this.genreList = res.data.genres;
-
-                    console.log(genreURL, this.genreList);
                 
                 })
-                // }
             }
             
         },
         mounted() {
-            // this.callForGenre();
             this.findGenre();
         },
     }
@@ -80,9 +59,7 @@
         }
         
         ul {
-            // display: flex;
             color: $primary-color;
-            // gap: .5rem;
             font-size: 15px;
         }
     }

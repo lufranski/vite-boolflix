@@ -7,7 +7,7 @@
         data(){
             return{
                 store,
-                castList: {},
+                castList: [],
                 castCallMovie: 'https://api.themoviedb.org/3/',
                 castCallMovie2:'/credits?api_key=381a82bd8b02866089d3f125535bf53d&language=en-US',
                 baseCastImg: 'https://image.tmdb.org/t/p/',
@@ -23,9 +23,9 @@
                 .get(castUrl)
                 .then(res => {
                     
-                    this.castList = res.data;
+                    this.castList = res.data.cast;
 
-                    console.log(res.data);
+                    console.log(this.castList);
 
                 })
                 .catch(err => {
@@ -41,7 +41,7 @@
             },
             sliceCast(){
 
-                return this.castList.cast.slice(0, 5);
+                return this.castList.slice(0, 5);
 
             },
             showCast(){
